@@ -3,19 +3,14 @@
 let dotenv = require('dotenv')
 dotenv.config()
 
-let crypto=require('crypto')
+let bcrypt=require('bcryptjs')
 // let {salt, mongoUri} = require('./src/config/constant')
 
 let mongoose =  require('mongoose');
 let model = require('./src/schema/users')
 // let dep = require('./src/schema/department')
-var hash=crypto.createHmac('md5',process.env.SALT)
-
-hash.update('S3mangat45678')
-hash.update('admin')
-let hashed=hash.digest('hex');
 // console.log(hashed, mongoUri);
-
+let pass  = bcrypt.hashSync("1234"+process.env.SALT, 10)
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });
 // const d = new dep({
 //     title:'super',
@@ -26,7 +21,7 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });
 
 const x = new model({
     username:'admin',
-    password:hashed,
+    password:pass,
     email:'zakywtf@gmail.com',
     role:1
 })
