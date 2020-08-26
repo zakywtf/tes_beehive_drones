@@ -1,9 +1,9 @@
 import Models from '../classes/classModel';
-import category from '../schema/category';
+import sch from '../schema/category';
 
 class categoryModel extends Models{
     constructor(){
-        super(category)
+        super(sch)
     }
 
 }

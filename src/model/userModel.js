@@ -1,10 +1,10 @@
 import Models from '../classes/classModel';
-import users from '../schema/users';
+import sch from '../schema/users';
 
 class userModel extends Models{
     constructor(){
-        super(users)
-        this.role=1
+        super(sch)
+        this.level=10
     }
 
     async getAll(){
