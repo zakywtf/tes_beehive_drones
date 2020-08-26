@@ -1,11 +1,13 @@
 import xpress from 'express'
 import dotenv from 'dotenv'
-import users from './controller/usersCtrl'
-import login from './controller/login'
 import { connectDb } from './config/db';
 import bodyParser from 'body-parser'
 import validateToken from './lib/validateToken';
 import moment from 'moment';
+
+import users from './controller/usersCtrl'
+import login from './controller/login'
+import category from './controller/categoryCtrl'
 
 let app = xpress()
 dotenv.config()
@@ -32,6 +34,7 @@ app.use('/api/login', login)
 app.use('/api/v1/', validateToken)
 
 app.use('/api/v1/users', users)
+app.use('/api/v1/category', category)
 
 io.on('connection', function (socket) {
   socket.emit('tes')

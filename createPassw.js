@@ -22,6 +22,10 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });
 const x = new model({
     username:'admin',
     password:pass,
+    first_name: 'Nova Zaky',
+    last_name: 'Fathoni',
+    address:'Tepus',
+    telp:'083867810825',
     email:'zakywtf@gmail.com',
     role:1
 })
