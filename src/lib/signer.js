@@ -37,13 +37,12 @@ const createToken = async(payload) => {
 }
 
 const checkUser = async(body) => {
-    return await users.findOne({ username: body.username }).exec();
+    return await users.findOne({ email: body.email }).exec();
 }
 
 const createPayload = async(user) => {
     return {
-        id:user.id, 
-        username:user.username,
+        id:user.id,
         name:user.name,
         level:user.level,
         email:user.email

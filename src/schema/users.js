@@ -1,7 +1,6 @@
 let m =  require('mongoose')
 let Schema = m.Schema
 let sch = new m.Schema({
-    username:String,//{ type: , required: true, unique: true, lowercase:true },
     password:String,
     name:String,
     email:String,
@@ -14,7 +13,7 @@ let sch = new m.Schema({
     deletedAt:{type:Date},
 })
 
-sch.index({username:1},{unique:true})
+sch.index({email:1},{unique:true})
 sch.plugin(require('mongoose-autopopulate'))
 
 module.exports = m.model('users',sch);

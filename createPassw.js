@@ -20,9 +20,8 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });
 // d.save()
 
 const x = new model({
-    username:'admin',
     password:pass,
-    name: 'Nova Zaky',
+    name: 'Nova Zaky Fathoni',
     email:'zakywtf@gmail.com',
     level:10
 })
