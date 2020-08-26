@@ -44,11 +44,8 @@ const createPayload = async(user) => {
     return {
         id:user.id, 
         username:user.username,
-        firstName:user.first_name,
-        lastName:user.last_name,
-        address:user.address,
-        telp:user.telp,
-        role:user.role,
+        name:user.name,
+        level:user.level,
         email:user.email
     }
 }
