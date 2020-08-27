@@ -3,8 +3,9 @@ import bcrypt from 'bcryptjs'
 
 const changePass = async (body, udata) => {
     const {oldPass, newPass} = body
-    const user = await checkUser(udata)
-    const compare = bcrypt.compareSync(oldPass+process.env.SALT, user.password)
+    const {id, email} = udata
+    const user = await checkUser(id)
+    const compare = bcrypt.compareSync(oldPass+email+process.env.SALT, user.password)
     console.log({user,body,udata,compare});
 
     if(compare){
@@ -18,7 +19,7 @@ const changePass = async (body, udata) => {
 }
 
 const checkUser = async(udata) => {
-    return await users.findById(udata.id).exec();
+    return await users.findById(id).exec();
 }
 
 module.exports ={

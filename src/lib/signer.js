@@ -5,6 +5,7 @@ import {createSession} from '../lib/sessionHandler';
 
 const sign = async(body, userAgent) => {
     let user = await checkUser(body)
+    const {email, password} = body
     // console.log({body,user});
     
     if(user){
@@ -12,7 +13,7 @@ const sign = async(body, userAgent) => {
         var tes = bcrypt.compareSync(body.password+process.env.SALT, user.password)
         // console.log({tes});
         
-        if(bcrypt.compareSync(body.password+process.env.SALT, user.password)) {
+        if(bcrypt.compareSync(password+email+process.env.SALT, user.password)) {
             var token = await createToken(payload)
             return await createSession(token)
         }else{

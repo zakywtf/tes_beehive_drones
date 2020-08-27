@@ -35,7 +35,7 @@ class userModel extends Models{
 
     doConvertParam(body, pass){
         body.createdBy = this.udata.payload.id,
-        body.password = bcrypt.hashSync(pass+process.env.SALT, 10)
+        body.password = bcrypt.hashSync(pass+body.email+process.env.SALT, 10)
         return body
     }
 

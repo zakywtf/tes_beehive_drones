@@ -10,7 +10,9 @@ let mongoose =  require('mongoose');
 let model = require('./src/schema/users')
 // let dep = require('./src/schema/department')
 // console.log(hashed, mongoUri);
-let pass  = bcrypt.hashSync("1234"+process.env.SALT, 10)
+let pass = "1234"
+let email = "zakywtf@gmail.com"
+let hash  = bcrypt.hashSync(pass+email+process.env.SALT, 10)
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });
 // const d = new dep({
 //     title:'super',
@@ -20,9 +22,9 @@ mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });
 // d.save()
 
 const x = new model({
-    password:pass,
+    password:hash,
     name: 'Nova Zaky Fathoni',
-    email:'zakywtf@gmail.com',
+    email:email,
     level:10
 })
 x.save()
