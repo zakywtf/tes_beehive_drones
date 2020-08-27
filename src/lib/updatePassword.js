@@ -18,7 +18,7 @@ const changePass = async (body, udata) => {
 
 }
 
-const checkUser = async(udata) => {
+const checkUser = async(id) => {
     return await users.findById(id).exec();
 }
 
