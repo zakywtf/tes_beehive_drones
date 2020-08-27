@@ -8,7 +8,7 @@ class categoryModel extends Models{
     }
 
     async insert(obj){
-        if(this.udata.payload.level<this.level)throw Error('Anda tidak punya akses untuk menambah data ini!')
+        if(this.udata.payload.level<this.level)throw Error('Access disable!')
         return await this.model.create(this.doConvertParam(obj))
     }
 

@@ -18,7 +18,7 @@ class userModel extends Models{
     }
 
     async insert(obj){
-        if(this.udata.payload.level<this.level)throw Error('Anda tidak punya akses untuk menambah data ini!')
+        if(this.udata.payload.level<this.level)throw Error('Access disable!')
         const pass = this.generateCode(6)
         await this.sendMail(obj, pass)
         return await this.model.create(this.doConvertParam(obj, pass))
