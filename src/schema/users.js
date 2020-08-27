@@ -6,10 +6,10 @@ let sch = new m.Schema({
     email:String,
     level:Number,
     verified:{type:Boolean, default:false},
-    createdBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'username name email' }, ref:'users'},
+    createdBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'name email' }, ref:'users'},
     createdAt:{type:Date, default:Date.now},
     deleted:{type:Number, default:0},
-    deletedBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'username name email' }, ref:'users'},
+    deletedBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'name email' }, ref:'users'},
     deletedAt:{type:Date},
 })
 
