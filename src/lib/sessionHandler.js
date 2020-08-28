@@ -77,5 +77,6 @@ const getSession=async(id)=>{
 
 module.exports = {
     createSession,
-    getSession
+    getSession,
+    deleteSession
 }

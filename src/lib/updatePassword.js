@@ -9,7 +9,7 @@ const changePass = async (body, udata) => {
     console.log({user,body,udata,compare});
 
     if(compare){
-        const passNew  = bcrypt.hashSync(newPass+process.env.SALT, 10)
+        const passNew  = bcrypt.hashSync(newPass+email+process.env.SALT, 10)
         user.password = passNew
         user.save()
     }else{
