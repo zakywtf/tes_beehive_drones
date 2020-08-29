@@ -48,7 +48,9 @@ io.on('connection', function (socket) {
 });
 
 connectDb().then(async () => {
-    app.listen(process.env.PORT, '127.0.0.1', () =>
-      console.log(`Server connet on port ${process.env.PORT}`),
-    );
+    app.listen(process.env.PORT, function () { 
+      var host = app.address().address  
+      var port = app.address().port  
+      console.log("Example app listening at http://%s:%s", host, port)  
+  }) 
 });
