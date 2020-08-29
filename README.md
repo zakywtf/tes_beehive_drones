@@ -28,12 +28,12 @@ A. Autentikasi<br/>
     }
     ```
     pada saat anda mengakses route /api/v1/ anda harus menyertakan token di bagian header seperti dibawah ini : 
-    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/headertoken.png?raw=true)<br/><br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/headertoken.png?raw=true)<br/>
     contoh ganti password seperti berikut ini: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/changepass.png?raw=true)<br/><br/><br/><br/>
     3. Logout<br/>
-    post data ke url https://zakyarticles.herokuapp.com/api/v1/users/logout dengan menyertakan token di header: <br/>
-    contoh ganti logout seperti berikut ini: <br/>
+    post data ke url https://zakyarticles.herokuapp.com/api/v1/users/logout dengan menyertakan token di header <br/>
+    contoh logout seperti berikut ini: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/logout.png?raw=true)<br/><br/>
 
 
