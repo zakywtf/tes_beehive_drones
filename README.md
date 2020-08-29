@@ -12,20 +12,20 @@ A. Autentikasi<br/>
     1. Login<br/>
     post data ke url https://zakyarticles.herokuapp.com/api/login , dengan menggunakan body raw json : <br/>
     ```
-    {
-        "email":"zakywtf@gmail.com",
-        "password":"123456"
-    }
+    {<br/>
+        "email":"zakywtf@gmail.com",<br/>
+        "password":"1234"<br/>
+    }<br/>
     ```
     return dari post data tersebut berupa token yang di gunakan sebagai autentikasi saat melakukan call api. contoh login dan return data seperti berikut ini: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/login.png?raw=true)<br/><br/><br/>
     2. Ganti password<br/>
     post data ke url https://zakyarticles.herokuapp.com/api/v1/users/change_pass , dengan menggunakan body raw json : <br/>
     ```
-    {
-        "oldPass":"123456",
-        "newPass":"1234"
-    }
+    {<br/>
+        "oldPass":"123456",<br/>
+        "newPass":"1234"<br/>
+    }<br/>
     ```
     pada saat anda mengakses route /api/v1/ anda harus menyertakan token di bagian header seperti dibawah ini : 
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/headertoken.png?raw=true)<br/>
@@ -82,6 +82,51 @@ B. Admin<br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/deleteauthor.png?raw=true)<br/><br/><br/><br/>
 
 
-B. get books<br/>
-    use url http://localhost:2500/api/v1/books to get books. using raw json in your payload. example like this : <br/>
-    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/get_books.png?raw=true)<br/><br/>
+B. Author<br/>
+    1. Lihat daftar artikel<br/>
+    dengan method 
+    ```
+    GET
+    ```
+    send data ke https://zakyarticles.herokuapp.com/api/v1/article/pagination/1/10 , jika token tersebut merupakan return dari login author maka sistem akan otomatis mem-filter artikel berdasarkan author yang sedang aktif. contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/getarticles.png?raw=true)<br/><br/><br/>
+    2. Lihat detail artikel<br/>
+    dengan method 
+    ```
+    GET
+    ```
+    send data ke https://zakyarticles.herokuapp.com/api/v1/article/detail/:id_article , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/detailarticle.png?raw=true)<br/><br/><br/>
+    3. Cari artikel berdasarkan tag<br/>
+    dengan method 
+    ```
+    GET
+    ```
+    send data ke https://zakyarticles.herokuapp.com/api/v1/article/detail/:id_article , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/dad.png?raw=true)<br/><br/><br/>
+    4. Edit artikel<br/>
+    dengan method 
+    ```
+    POST
+    ```
+    send data ke https://zakyarticles.herokuapp.com/api/v1/article/detail/:id_article ,dengan menggunakan body raw json : <br/>
+    ```
+    {<br/>
+        "tags": [<br/>
+            {<br/>
+                "category_id": "5f4a0192e4d75500416120c4"<br/>
+            }<br/>
+        ],<br/>
+        "title": "Total Hadiah The International 10 Sudah Mencapai US$ 34 Juta",<br/>
+        "article":"Teks sudah di edit."<br/>
+    }<br/>
+    ```
+    contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/detailarticle.png?raw=true)<br/><br/><br/>
+    5. Hapus author<br/>
+    dengan method 
+    ```
+    POST
+    ```
+    send data ke https://zakyarticles.herokuapp.com/api/v1/users/delete/:id_author , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/deleteauthor.png?raw=true)<br/><br/><br/>
