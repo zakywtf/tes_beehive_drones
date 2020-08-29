@@ -24,7 +24,7 @@ A. Autentikasi<br/>
     ```
     {
         "oldPass":"123456",
-        "newPass":"1234"<
+        "newPass":"1234"
     }
     ```
     pada saat anda mengakses route /api/v1/ anda harus menyertakan token di bagian header seperti dibawah ini : 
