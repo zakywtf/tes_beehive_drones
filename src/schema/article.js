@@ -7,12 +7,12 @@ let sch = new m.Schema({
     title:String,
     article:String,
     deleted:{type:Number, default:0},
-    deletedBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'name email' }, ref:'user'},
+    deletedBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'name email' }, ref:'users'},
     deletedAt:{type:Date},
     updatedAt:{type:Date},
-    updatedBy:{type: Schema.Types.ObjectId, autopopulate:true, ref:'users'},
+    updatedBy:{type: Schema.Types.ObjectId, autopopulate:{ select: 'name email' }, ref:'users'},
     createdAt:{type:Date, default:Date.now},
-    author:{type: Schema.Types.ObjectId, autopopulate:true, ref:'users'}
+    author:{type: Schema.Types.ObjectId, autopopulate:{ select: 'name email' }, ref:'users'}
 })
 
 sch.plugin(require('mongoose-autopopulate'))
