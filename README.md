@@ -78,8 +78,24 @@ B. Admin<br/>
     ```
     POST
     ```
-    send data ke https://zakyarticles.herokuapp.com/api/v1/users/delete/:id_author , contohnya sebagai berikut: <br/>
-    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/deleteauthor.png?raw=true)<br/><br/><br/><br/>
+    send data ke https://zakyarticles.herokuapp.com/api/v1/category/create , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/deleteauthor.png?raw=true)<br/><br/><br/>
+    7. Ganti password<br/>
+    post data ke url https://zakyarticles.herokuapp.com/api/v1/category/create , dengan menggunakan body raw json : <br/>
+    ```
+    {
+        "name":"Fashion"
+    }
+    ```
+    contoh ganti password seperti berikut ini: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/createcategory.png?raw=true)<br/><br/><br/>
+    4. Lihat daftar category<br/>
+    dengan method 
+    ```
+    GET
+    ```
+    send data ke hhttps://zakyarticles.herokuapp.com/api/v1/category/ , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/getcategory.png?raw=true)<br/><br/><br/><br/>
 
 
 B. Author<br/>
@@ -97,14 +113,21 @@ B. Author<br/>
     ```
     send data ke https://zakyarticles.herokuapp.com/api/v1/article/detail/:id_article , contohnya sebagai berikut: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/detailarticle.png?raw=true)<br/><br/><br/>
-    3. Cari artikel berdasarkan tag<br/>
+    3. Lihat daftar category<br/>
+    dengan method 
+    ```
+    GET
+    ```
+    send data ke hhttps://zakyarticles.herokuapp.com/api/v1/category/ , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/getcategory.png?raw=true)<br/><br/><br/>
+    4. Cari artikel berdasarkan tag<br/>
     dengan method 
     ```
     GET
     ```
     send data ke https://zakyarticles.herokuapp.com/api/v1/article/detail/:id_article , contohnya sebagai berikut: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/dad.png?raw=true)<br/><br/><br/>
-    4. Edit artikel<br/>
+    5. Edit artikel<br/>
     dengan method 
     ```
     POST
@@ -123,7 +146,7 @@ B. Author<br/>
     ```
     contohnya sebagai berikut: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/editarticle.png?raw=true)<br/><br/><br/>
-    5. Hapus artikel<br/>
+    6. Hapus artikel<br/>
     dengan method 
     ```
     POST
