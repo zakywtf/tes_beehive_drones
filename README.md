@@ -73,14 +73,21 @@ B. Admin<br/>
     ```
     send data ke https://zakyarticles.herokuapp.com/api/v1/article/delete/:id_article , contohnya sebagai berikut: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/deletearticle.png?raw=true)<br/><br/><br/>
-    6. Hapus author<br/>
+    6. Tambah author<br/>
     dengan method 
     ```
     POST
     ```
-    send data ke https://zakyarticles.herokuapp.com/api/v1/category/create , contohnya sebagai berikut: <br/>
+    send data ke https://zakyarticles.herokuapp.com/api/v1/users/create, contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/createauthor.png?raw=true)<br/><br/><br/>
+    7. Hapus author<br/>
+    dengan method 
+    ```
+    POST
+    ```
+    send data ke https://zakyarticles.herokuapp.com/api/v1/users/delete/:id_author , contohnya sebagai berikut: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/deleteauthor.png?raw=true)<br/><br/><br/>
-    7. Create category<br/>
+    8. Create category<br/>
     post data ke url https://zakyarticles.herokuapp.com/api/v1/category/create , dengan menggunakan body raw json : <br/>
     ```
     {
@@ -89,7 +96,7 @@ B. Admin<br/>
     ```
     contoh ganti password seperti berikut ini: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/createcategory.png?raw=true)<br/><br/><br/>
-    8. Lihat daftar category<br/>
+    9. Lihat daftar category<br/>
     dengan method 
     ```
     GET
