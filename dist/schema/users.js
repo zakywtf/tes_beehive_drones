@@ -1,38 +1,47 @@
 "use strict";
 
-var mongoose = require('mongoose');
+var m = require('mongoose');
 
-var users = mongoose.Schema({
-  username: {
-    type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  first_name: String,
-  last_name: String,
-  address: String,
-  telp: String,
+var Schema = m.Schema;
+var sch = new m.Schema({
+  password: String,
+  name: String,
   email: String,
-  role: {
-    type: String,
-    "enum": ['1', '2', '3']
+  level: Number,
+  verified: {
+    type: Boolean,
+    "default": false
   },
-  create_at: {
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    autopopulate: {
+      select: 'name email'
+    },
+    ref: 'users'
+  },
+  createdAt: {
     type: Date,
     "default": Date.now
+  },
+  deleted: {
+    type: Number,
+    "default": 0
+  },
+  deletedBy: {
+    type: Schema.Types.ObjectId,
+    autopopulate: {
+      select: 'name email'
+    },
+    ref: 'users'
+  },
+  deletedAt: {
+    type: Date
   }
 });
-users.index({
-  telp: 1
-}, {
-  unique: true
-});
-users.index({
+sch.index({
   email: 1
 }, {
   unique: true
 });
-module.exports = mongoose.model('users', users);
+sch.plugin(require('mongoose-autopopulate'));
+module.exports = m.model('users', sch);

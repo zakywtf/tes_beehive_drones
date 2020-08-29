@@ -2,6 +2,10 @@
 
 var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
+var _moment = _interopRequireDefault(require("moment"));
+
+var _checkLastOnline = require("../lib/checkLastOnline");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -10,12 +14,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 var SESSION = [];
 
-var decode =
-/*#__PURE__*/
-function () {
-  var _ref = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee(token) {
+var decode = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(token) {
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -37,12 +37,8 @@ function () {
   };
 }();
 
-var idleTime =
-/*#__PURE__*/
-function () {
-  var _ref2 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee2() {
+var idleTime = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -62,12 +58,8 @@ function () {
   };
 }();
 
-var createSession =
-/*#__PURE__*/
-function () {
-  var _ref3 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee3(token) {
+var createSession = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(token) {
     var dc, time, udata, cekSesi, datas;
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
@@ -98,7 +90,9 @@ function () {
 
             datas = {
               udata: udata,
-              session: true
+              session: true,
+              isOnline: true,
+              lastOnline: (0, _moment["default"])().format('YYYY-MM-DD HH:mm:ss')
             };
             setTimeout(function () {
               deleteSession(udata);
@@ -109,7 +103,7 @@ function () {
             return _context3.abrupt("return", token);
 
           case 18:
-            throw new Error('Anda sedang login di user lain!');
+            throw new Error('Anda sedang login di device lain!');
 
           case 19:
           case "end":
@@ -124,20 +118,23 @@ function () {
   };
 }();
 
-var deleteSession =
-/*#__PURE__*/
-function () {
-  var _ref4 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee4(udata) {
+var deleteSession = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(udata) {
+    var datas;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
-            delete SESSION["".concat(udata.id)];
-            console.log("sesi untuk ".concat(udata.id, ", sudah berakhir"));
+            datas = {
+              udata: udata,
+              session: false,
+              isOnline: false,
+              lastOnline: (0, _moment["default"])().format('YYYY-MM-DD HH:mm:ss')
+            };
+            SESSION["".concat(udata.id)] = datas;
+            console.log(SESSION, 'sesi berakhir');
 
-          case 2:
+          case 3:
           case "end":
             return _context4.stop();
         }
@@ -150,12 +147,8 @@ function () {
   };
 }();
 
-var checkSession =
-/*#__PURE__*/
-function () {
-  var _ref5 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee5(udata) {
+var checkSession = /*#__PURE__*/function () {
+  var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(udata) {
     var sessionData;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
@@ -189,6 +182,58 @@ function () {
   };
 }();
 
+var getSession = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(id) {
+    var data;
+    return regeneratorRuntime.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            // console.log({id});
+            data = SESSION["".concat(id)];
+
+            if (!(data != undefined)) {
+              _context6.next = 12;
+              break;
+            }
+
+            if (!(data.isOnline == true)) {
+              _context6.next = 6;
+              break;
+            }
+
+            _context6.t0 = "Online";
+            _context6.next = 9;
+            break;
+
+          case 6:
+            _context6.next = 8;
+            return (0, _checkLastOnline.getLastOnline)(data.lastOnline);
+
+          case 8:
+            _context6.t0 = _context6.sent;
+
+          case 9:
+            return _context6.abrupt("return", _context6.t0);
+
+          case 12:
+            return _context6.abrupt("return", "Offline");
+
+          case 13:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+
+  return function getSession(_x5) {
+    return _ref6.apply(this, arguments);
+  };
+}();
+
 module.exports = {
-  createSession: createSession
+  createSession: createSession,
+  getSession: getSession,
+  deleteSession: deleteSession
 };

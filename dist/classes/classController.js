@@ -12,22 +12,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 function controller(model) {
   var router = (0, _express.Router)();
-  router.get('/',
-  /*#__PURE__*/
-  function () {
-    var _ref = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee2(req, res) {
+  router.get('/', /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(req, res) {
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              (0, _ctrlHandler["default"])(req, res,
-              /*#__PURE__*/
-              function () {
-                var _ref2 = _asyncToGenerator(
-                /*#__PURE__*/
-                regeneratorRuntime.mark(function _callee(body) {
+              (0, _ctrlHandler["default"])(req, res, /*#__PURE__*/function () {
+                var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(body) {
                   return regeneratorRuntime.wrap(function _callee$(_context) {
                     while (1) {
                       switch (_context.prev = _context.next) {
@@ -64,22 +56,14 @@ function controller(model) {
       return _ref.apply(this, arguments);
     };
   }());
-  router.get('/detail/:id',
-  /*#__PURE__*/
-  function () {
-    var _ref3 = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee4(req, res) {
+  router.get('/detail/:id', /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
       return regeneratorRuntime.wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              (0, _ctrlHandler["default"])(req, res,
-              /*#__PURE__*/
-              function () {
-                var _ref4 = _asyncToGenerator(
-                /*#__PURE__*/
-                regeneratorRuntime.mark(function _callee3(body) {
+              (0, _ctrlHandler["default"])(req, res, /*#__PURE__*/function () {
+                var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(body) {
                   return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
                       switch (_context3.prev = _context3.next) {
@@ -116,22 +100,14 @@ function controller(model) {
       return _ref3.apply(this, arguments);
     };
   }());
-  router.post('/create',
-  /*#__PURE__*/
-  function () {
-    var _ref5 = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee6(req, res) {
+  router.post('/create', /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(req, res) {
       return regeneratorRuntime.wrap(function _callee6$(_context6) {
         while (1) {
           switch (_context6.prev = _context6.next) {
             case 0:
-              (0, _ctrlHandler["default"])(req, res,
-              /*#__PURE__*/
-              function () {
-                var _ref6 = _asyncToGenerator(
-                /*#__PURE__*/
-                regeneratorRuntime.mark(function _callee5(body) {
+              (0, _ctrlHandler["default"])(req, res, /*#__PURE__*/function () {
+                var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(body) {
                   return regeneratorRuntime.wrap(function _callee5$(_context5) {
                     while (1) {
                       switch (_context5.prev = _context5.next) {
@@ -168,22 +144,14 @@ function controller(model) {
       return _ref5.apply(this, arguments);
     };
   }());
-  router.post('/update/:id',
-  /*#__PURE__*/
-  function () {
-    var _ref7 = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee8(req, res) {
+  router.post('/update/:id', /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(req, res) {
       return regeneratorRuntime.wrap(function _callee8$(_context8) {
         while (1) {
           switch (_context8.prev = _context8.next) {
             case 0:
-              (0, _ctrlHandler["default"])(req, res,
-              /*#__PURE__*/
-              function () {
-                var _ref8 = _asyncToGenerator(
-                /*#__PURE__*/
-                regeneratorRuntime.mark(function _callee7(body) {
+              (0, _ctrlHandler["default"])(req, res, /*#__PURE__*/function () {
+                var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(body) {
                   return regeneratorRuntime.wrap(function _callee7$(_context7) {
                     while (1) {
                       switch (_context7.prev = _context7.next) {
@@ -222,22 +190,14 @@ function controller(model) {
       return _ref7.apply(this, arguments);
     };
   }());
-  router.post('/delete/:id',
-  /*#__PURE__*/
-  function () {
-    var _ref9 = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee10(req, res) {
+  router.post('/delete/:id', /*#__PURE__*/function () {
+    var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(req, res) {
       return regeneratorRuntime.wrap(function _callee10$(_context10) {
         while (1) {
           switch (_context10.prev = _context10.next) {
             case 0:
-              (0, _ctrlHandler["default"])(req, res,
-              /*#__PURE__*/
-              function () {
-                var _ref10 = _asyncToGenerator(
-                /*#__PURE__*/
-                regeneratorRuntime.mark(function _callee9(body) {
+              (0, _ctrlHandler["default"])(req, res, /*#__PURE__*/function () {
+                var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(body) {
                   return regeneratorRuntime.wrap(function _callee9$(_context9) {
                     while (1) {
                       switch (_context9.prev = _context9.next) {
@@ -276,22 +236,14 @@ function controller(model) {
       return _ref9.apply(this, arguments);
     };
   }());
-  router.get('/paging/:page/:perPage',
-  /*#__PURE__*/
-  function () {
-    var _ref11 = _asyncToGenerator(
-    /*#__PURE__*/
-    regeneratorRuntime.mark(function _callee12(req, res) {
+  router.get('/paging/:page/:perPage', /*#__PURE__*/function () {
+    var _ref11 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee12(req, res) {
       return regeneratorRuntime.wrap(function _callee12$(_context12) {
         while (1) {
           switch (_context12.prev = _context12.next) {
             case 0:
-              (0, _ctrlHandler["default"])(req, res,
-              /*#__PURE__*/
-              function () {
-                var _ref12 = _asyncToGenerator(
-                /*#__PURE__*/
-                regeneratorRuntime.mark(function _callee11(body) {
+              (0, _ctrlHandler["default"])(req, res, /*#__PURE__*/function () {
+                var _ref12 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee11(body) {
                   var _req$params, page, perPage;
 
                   return regeneratorRuntime.wrap(function _callee11$(_context11) {

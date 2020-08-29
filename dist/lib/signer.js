@@ -6,8 +6,6 @@ var _jsonwebtoken = _interopRequireDefault(require("jsonwebtoken"));
 
 var _users = _interopRequireDefault(require("../schema/users"));
 
-var _masterCache = require("../lib/masterCache");
-
 var _sessionHandler = require("../lib/sessionHandler");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -16,13 +14,9 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var sign =
-/*#__PURE__*/
-function () {
-  var _ref = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee(body, userAgent) {
-    var user, payload, token;
+var sign = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(body, userAgent) {
+    var user, email, password, payload, tes, token;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -32,27 +26,25 @@ function () {
 
           case 2:
             user = _context.sent;
+            email = body.email, password = body.password; // console.log({body,user});
 
             if (!user) {
               _context.next = 21;
               break;
             }
 
-            _context.next = 6;
+            _context.next = 7;
             return createPayload(user);
 
-          case 6:
+          case 7:
             payload = _context.sent;
+            tes = _bcryptjs["default"].compareSync(body.password + process.env.SALT, user.password); // console.log({tes});
 
-            if (!_bcryptjs["default"].compareSync(body.password + process.env.SALT, user.password)) {
+            if (!_bcryptjs["default"].compareSync(password + email + process.env.SALT, user.password)) {
               _context.next = 18;
               break;
             }
 
-            _context.next = 10;
-            return (0, _masterCache.getGeoLocation)(userAgent);
-
-          case 10:
             _context.next = 12;
             return createToken(payload);
 
@@ -87,12 +79,8 @@ function () {
   };
 }();
 
-var createToken =
-/*#__PURE__*/
-function () {
-  var _ref2 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee2(payload) {
+var createToken = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(payload) {
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
@@ -125,19 +113,15 @@ function () {
   };
 }();
 
-var checkUser =
-/*#__PURE__*/
-function () {
-  var _ref3 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee3(body) {
+var checkUser = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(body) {
     return regeneratorRuntime.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
             return _users["default"].findOne({
-              username: body.username
+              email: body.email
             }).exec();
 
           case 2:
@@ -156,24 +140,16 @@ function () {
   };
 }();
 
-var createPayload =
-/*#__PURE__*/
-function () {
-  var _ref4 = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee4(user) {
+var createPayload = /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(user) {
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
             return _context4.abrupt("return", {
               id: user.id,
-              username: user.username,
-              firstName: user.first_name,
-              lastName: user.last_name,
-              address: user.address,
-              telp: user.telp,
-              role: user.role,
+              name: user.name,
+              level: user.level,
               email: user.email
             });
 

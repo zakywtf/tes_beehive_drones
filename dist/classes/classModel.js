@@ -14,9 +14,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Models =
-/*#__PURE__*/
-function () {
+var Models = /*#__PURE__*/function () {
   function Models(model) {
     _classCallCheck(this, Models);
 
@@ -32,9 +30,7 @@ function () {
   }, {
     key: "getAll",
     value: function () {
-      var _getAll = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee() {
+      var _getAll = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -62,9 +58,7 @@ function () {
   }, {
     key: "getByValue",
     value: function () {
-      var _getByValue = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee2(body) {
+      var _getByValue = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(body) {
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -92,9 +86,7 @@ function () {
   }, {
     key: "getById",
     value: function () {
-      var _getById = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee3(id) {
+      var _getById = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(id) {
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -166,9 +158,7 @@ function () {
   }, {
     key: "insert",
     value: function () {
-      var _insert = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee4(obj) {
+      var _insert = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(obj) {
         var resp;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
@@ -208,9 +198,7 @@ function () {
   }, {
     key: "update",
     value: function () {
-      var _update = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee5(id, obj) {
+      var _update = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(id, obj) {
         var resp;
         return regeneratorRuntime.wrap(function _callee5$(_context5) {
           while (1) {
@@ -240,9 +228,7 @@ function () {
   }, {
     key: "delete",
     value: function () {
-      var _delete2 = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee6(id, obj) {
+      var _delete2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(id, obj) {
         var resp;
         return regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
@@ -272,9 +258,7 @@ function () {
   }, {
     key: "paging",
     value: function () {
-      var _paging = _asyncToGenerator(
-      /*#__PURE__*/
-      regeneratorRuntime.mark(function _callee7(limit, offset, filter, sort) {
+      var _paging = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(limit, offset, filter, sort) {
         var data, total;
         return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
