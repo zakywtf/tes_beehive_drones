@@ -11,9 +11,9 @@ rtr.get('/pagination/:page/:perPage',async(req,res)=>{
         const udata = res.locals.udata.payload
         const {page, perPage}=req.params;
         if(udata.level>5){
-            return await model.paging(perPage, (((page-1) * perPage)), {}, {createdAt:-1});
+            return await model.paging(perPage, (((page-1) * perPage)), {deleted:0}, {createdAt:-1});
         }else{
-            return await model.paging(perPage, (((page-1) * perPage)), {author:mg.Types.ObjectId(udata.id)}, {createdAt:-1});
+            return await model.paging(perPage, (((page-1) * perPage)), {deleted:0, author:mg.Types.ObjectId(udata.id)}, {createdAt:-1});
         }
     })
 })
