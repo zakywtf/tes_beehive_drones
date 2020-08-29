@@ -23,7 +23,7 @@ app.use(function(req,res,next){
 });
 
 app.get('/', (req, res)=>{
-  var message = 'Hello World!'
+  var message = 'Hello World. This is my article!'
   res.send(message);
 })
 // app.use('/names', (req,res,next)=>{
