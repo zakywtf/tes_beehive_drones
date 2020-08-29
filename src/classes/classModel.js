@@ -18,7 +18,7 @@ class Models {
     }
 
     async getById(id){
-        return await this.model.findById(id)
+        return await this.model.findById(id,this.getProjection())
     }
 
     doConvertParam(body){

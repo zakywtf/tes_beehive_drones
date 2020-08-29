@@ -31,4 +31,17 @@ rtr.post('/logout',async(req, res)=>{
     })
 })
 
+rtr.get('/pagination/:level/:page/:perPage',async(req,res)=>{
+    handleRequest(req, res, async (body)=>{
+        const udata = res.locals.udata.payload
+        const {page, perPage, level}=req.params;
+        if(udata.level>5){
+            const role = (level == "admin")?10:5
+            return await model.paging(perPage, (((page-1) * perPage)), {level:role}, {createdAt:-1});
+        }else{
+            throw new Error("Access denied!")
+        }
+    })
+})
+
 module.exports = rtr
