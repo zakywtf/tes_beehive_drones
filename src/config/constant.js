@@ -1,5 +1,4 @@
 require('dotenv').config()
-dotenv.config()
 
 const smtp={
     host:'smtp.googlemail.com',
