@@ -19,7 +19,6 @@ A. Autentikasi<br/>
     ```
     return dari post data tersebut berupa token yang di gunakan sebagai autentikasi saat melakukan call api. contoh login dan return data seperti berikut ini: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/login.png?raw=true)<br/><br/>
-
     2. Ganti password
     post data ke url https://zakyarticles.herokuapp.com/api/v1/users/change_pass , dengan menggunakan body raw json : <br/>
     ```
@@ -32,6 +31,11 @@ A. Autentikasi<br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/headertoken.png?raw=true)<br/><br/>
     contoh ganti password seperti berikut ini: <br/>
     ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/changepass.png?raw=true)<br/><br/>
+    3. Logout
+    post data ke url https://zakyarticles.herokuapp.com/api/v1/users/change_pass dengan menyertakan token di header: <br/>
+    contoh ganti logout seperti berikut ini: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/logout.png?raw=true)<br/><br/>
+
 
 B. get detail article<br/>
     use url http://localhost:2500/api/v1/articles/detail to get detail article. using raw json in your payload. example like this : <br/>
