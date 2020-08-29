@@ -26,6 +26,11 @@ app.get('/', (req, res)=>{
   var message = 'Hello World. This is my articles.!!'
   res.send(message);
 })
+
+app.get('/tes', (req, res)=>{
+  var message = moment()
+  res.send(message);
+})
 // app.use('/names', (req,res,next)=>{
 //     res.json()
 // })
