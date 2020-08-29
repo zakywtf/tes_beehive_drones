@@ -125,8 +125,8 @@ B. Author<br/>
     ```
     GET
     ```
-    send data ke https://zakyarticles.herokuapp.com/api/v1/article/detail/:id_article , contohnya sebagai berikut: <br/>
-    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/dad.png?raw=true)<br/><br/><br/>
+    send data ke https://zakyarticles.herokuapp.com/api/v1/article/pagination/1/10?tags=id_category , contohnya sebagai berikut: <br/>
+    ![alt text](https://github.com/zakywtf/portal_berita/blob/master/documentation/getarticlebytag.png?raw=true)<br/><br/><br/>
     5. Edit artikel<br/>
     dengan method 
     ```
