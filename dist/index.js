@@ -43,7 +43,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.get('/', function (req, res) {
-  var message = 'Hello World. This is my article!!';
+  var message = 'Hello World. This is my articles!!';
   res.send(message);
 }); // app.use('/names', (req,res,next)=>{
 //     res.json()
