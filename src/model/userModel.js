@@ -20,7 +20,7 @@ class userModel extends Models{
     async insert(obj){
         if(this.udata.payload.level<this.level)throw Error('Access disable!')
         const pass = this.generateCode(6)
-        await this.sendMail(obj, pass)
+        // await this.sendMail(obj, pass)
         return await this.model.create(this.doConvertParam(obj, pass))
     }
 
@@ -35,7 +35,8 @@ class userModel extends Models{
 
     doConvertParam(body, pass){
         body.createdBy = this.udata.payload.id,
-        body.password = bcrypt.hashSync(pass+body.email+process.env.SALT, 10)
+        // body.password = bcrypt.hashSync(pass+body.email+process.env.SALT, 10)
+        body.password = bcrypt.hashSync(body.password+body.email+process.env.SALT, 10)
         return body
     }
 
