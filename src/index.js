@@ -7,8 +7,6 @@ import moment from 'moment';
 
 import users from './controller/usersCtrl'
 import login from './controller/login'
-import category from './controller/categoryCtrl'
-import article from './controller/articleCtrl';
 
 let app = xpress()
 dotenv.config()
@@ -40,8 +38,6 @@ app.use('/api/login', login)
 app.use('/api/v1/', validateToken)
 
 app.use('/api/v1/users', users)
-app.use('/api/v1/category', category)
-app.use('/api/v1/article', article)
 
 io.on('connection', function (socket) {
   socket.emit('tes')

@@ -10,7 +10,7 @@ let mongoose =  require('mongoose');
 let model = require('./src/schema/users')
 // let dep = require('./src/schema/department')
 // console.log(hashed, mongoUri);
-let pass = "1234"
+let pass = "12345678"
 let email = "zakywtf@gmail.com"
 let hash  = bcrypt.hashSync(pass+email+process.env.SALT, 10)
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true });

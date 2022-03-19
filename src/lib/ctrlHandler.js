@@ -1,7 +1,7 @@
 const handleRequest = async (req, res, callback) =>{
     // let m = new model()
     let jres = {
-        error:0,
+        error:200,
         data:[],
         message:'',
         stack:{},

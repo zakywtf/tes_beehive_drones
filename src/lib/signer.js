@@ -10,8 +10,7 @@ const sign = async(body, userAgent) => {
     
     if(user){
         let payload = await createPayload(user)
-        var tes = bcrypt.compareSync(body.password+process.env.SALT, user.password)
-        // console.log({tes});
+        var tes = bcrypt.compareSync(password+email+process.env.SALT, user.password)
         
         if(bcrypt.compareSync(password+email+process.env.SALT, user.password)) {
             var token = await createToken(payload)
@@ -38,7 +37,7 @@ const createToken = async(payload) => {
 }
 
 const checkUser = async(body) => {
-    return await users.findOne({ email: body.email }).exec();
+    return await users.findOne({ email: body.email })
 }
 
 const createPayload = async(user) => {
