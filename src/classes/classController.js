@@ -20,23 +20,22 @@ function controller(model) {
     router.post('/create',async(req, res)=>{
         handleRequest(req, res, async (body)=>{
             model.setUdata(res.locals && res.locals.udata)
-            await model.insert(body)
-            return true
+            return await model.insert(body)
         })
     })
     
-    router.post('/update/:id',async(req, res)=>{
+    router.put('/update/:id',async(req, res)=>{
         handleRequest(req, res, async (body)=>{
             model.setUdata(res.locals && res.locals.udata)
-            await model.update({id: req.params.id}, model.convertParam(body))
+            await model.update({ id: req.params.id }, model.convertParam(body))
             return true
         })
     })
 
-    router.post('/delete/:id',async(req, res)=>{
+    router.delete('/delete/:id',async(req, res)=>{
         handleRequest(req, res, async (body)=>{
             model.setUdata(res.locals && res.locals.udata)
-            await model.delete({id: req.params.id}, model.convertParamDeleted(body))
+            await model.delete({ id: req.params.id }, model.convertParamDeleted(body))
             return true
         })
     })

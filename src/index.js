@@ -7,6 +7,7 @@ import moment from 'moment';
 
 import users from './controller/usersCtrl'
 import login from './controller/login'
+import positions from './controller/positionsCtrl'
 
 let app = xpress()
 dotenv.config()
@@ -38,6 +39,7 @@ app.use('/api/login', login)
 app.use('/api/v1/', validateToken)
 
 app.use('/api/v1/users', users)
+app.use('/api/v1/positions', positions)
 
 io.on('connection', function (socket) {
   socket.emit('tes')

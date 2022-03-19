@@ -1,7 +1,7 @@
 import Models from '../classes/classModel';
-import sch from '../schema/category';
+import sch from '../schema/positions';
 
-class categoryModel extends Models{
+class positionsModel extends Models{
     constructor(){
         super(sch)
         this.level=10
@@ -19,4 +19,4 @@ class categoryModel extends Models{
 
 }
 
-module.exports=categoryModel
+module.exports=positionsModel
