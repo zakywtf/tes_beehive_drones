@@ -1,20 +1,12 @@
 import Models from '../classes/classModel';
-import sch from '../schema/article';
+import sch from '../schema/employees';
 import moment from 'moment';
 import m from 'mongoose';
 
-class articleModel extends Models{
+class employessModel extends Models{
     constructor(){
         super(sch)
-        this.level=5
-    }
-
-    async getAll(){
-        if(this.udata.payload.level>this.level){
-            return await this.model.find({})
-        }else{
-            return await this.model.find({author:m.Types.ObjectId(this.udata.payload.id)})
-        }
+        this.level=10
     }
 
     async insert(obj){
@@ -28,4 +20,4 @@ class articleModel extends Models{
     }
 }
 
-module.exports=articleModel
+module.exports=employessModel

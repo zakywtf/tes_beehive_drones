@@ -10,7 +10,7 @@ class Models {
     }
 
     async getAll(){
-        return await this.model.find({})
+        return await this.model.find({deleted: 0})
     }
 
     async getByValue(body){
