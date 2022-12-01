@@ -20,7 +20,7 @@ const createSession = async(token) => {
     // console.log({dc});
     var udata = dc.payload.payload
     var cekSesi = await checkSession(udata)
-    if(cekSesi == true){
+    if(cekSesi == true || cekSesi == false){
         var datas = {
             udata:udata,
             session:true,
