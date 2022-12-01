@@ -1,9 +1,9 @@
-import {controller} from '../classes/classController';
-import m from '../model/userModel'
-import {getSession} from '../lib/sessionHandler';
-import handleRequest from '../lib/ctrlHandler'
-import {changePass} from '../lib/updatePassword';
-import {deleteSession} from '../lib/sessionHandler';
+import {controller} from '../classes/classController.cjs';
+import m from '../model/userModel.cjs'
+import {getSession} from '../lib/sessionHandler.cjs';
+import handleRequest from '../lib/ctrlHandler.cjs'
+import {changePass} from '../lib/updatePassword.cjs';
+import {deleteSession} from '../lib/sessionHandler.cjs';
 
 let model = new m()
 let rtr = controller(model)

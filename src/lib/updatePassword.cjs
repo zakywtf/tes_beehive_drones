@@ -1,4 +1,4 @@
-import users from '../schema/users';
+import users from '../schema/users.cjs';
 import bcrypt from 'bcryptjs'
 
 const changePass = async (body, udata) => {

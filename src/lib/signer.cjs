@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import users from '../schema/users'
-import {createSession} from '../lib/sessionHandler';
+import users from '../schema/users.cjs'
+import {createSession} from './sessionHandler.cjs';
 
 const sign = async(body, userAgent) => {
     let user = await checkUser(body)

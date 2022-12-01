@@ -1,9 +1,9 @@
-import Models from '../classes/classModel';
-import sch from '../schema/employees';
+import Models from '../classes/classModel.cjs';
+import sch from '../schema/sallarys.cjs';
 import moment from 'moment';
 import m from 'mongoose';
 
-class employessModel extends Models{
+class sallarysModel extends Models{
     constructor(){
         super(sch)
         this.level=10
@@ -20,4 +20,4 @@ class employessModel extends Models{
     }
 }
 
-module.exports=employessModel
+module.exports=sallarysModel

@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import handleRequest from '../lib/ctrlHandler'
+import handleRequest from '../lib/ctrlHandler.cjs'
 
 function controller(model) {
     let router = Router();

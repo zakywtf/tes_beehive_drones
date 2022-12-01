@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import moment from 'moment';
-import {getLastOnline} from '../lib/checkLastOnline';
+import {getLastOnline} from './checkLastOnline.cjs';
 
 const SESSION = []
 

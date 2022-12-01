@@ -1,6 +1,6 @@
 import {Router} from 'express'
-import handleRequest from '../lib/ctrlHandler'
-import {sign} from '../lib/signer';
+import handleRequest from '../lib/ctrlHandler.cjs'
+import {sign} from '../lib/signer.cjs';
 import useragent from 'express-useragent';
 
 let router = Router()

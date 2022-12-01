@@ -1,7 +1,7 @@
-import Models from '../classes/classModel';
-import sch from '../schema/users';
+import Models from '../classes/classModel.cjs';
+import sch from '../schema/users.cjs';
 import bcrypt from 'bcryptjs';
-import MAILER from '../lib/mailer';
+import MAILER from '../lib/mailer.cjs';
 
 class userModel extends Models{
     constructor(){

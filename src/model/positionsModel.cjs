@@ -1,5 +1,5 @@
-import Models from '../classes/classModel';
-import sch from '../schema/positions';
+import Models from '../classes/classModel.cjs';
+import sch from '../schema/positions.cjs';
 
 class positionsModel extends Models{
     constructor(){
