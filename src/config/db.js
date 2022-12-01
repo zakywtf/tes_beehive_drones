@@ -5,4 +5,4 @@ const connectDb = () => {
   return mongoose.connect(process.env.MONGO_URL);
 };
 
-export { connectDb };
+module.exports = { connectDb };
