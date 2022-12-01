@@ -1,15 +1,15 @@
-let dotenv = require('dotenv')
-dotenv.config()
 
 module.exports = {
     apps : [{
-      name   : process.env.name || "test-beehive",
-      script : "npm",
-      args   : "start",
-      watch  : false,
-      env    : process.env,
-      max_memory_restart: "2500M",
-      out:"/dev/null"
+        name   : "test-beehive",
+        script : "npm",
+        args   : "start",
+        watch  : false,
+        env    : {
+            NODE_ENV: "development",
+        },
+        max_memory_restart: "2500M",
+        out:"/dev/null"
     }]
   }
   
