@@ -1,7 +1,6 @@
 "use strict";
 
 var m = require('mongoose');
-
 var Schema = m.Schema;
 var sch = new m.Schema({
   password: String,

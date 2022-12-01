@@ -1,15 +1,19 @@
-
 module.exports = {
-    apps : [{
-        name   : "test-beehive",
-        script : "npm",
-        args   : "start",
-        watch  : false,
-        env    : {
-            NODE_ENV: "development",
-        },
-        max_memory_restart: "2500M",
-        out:"/dev/null"
-    }]
+  apps : [{
+    script: 'src/index.js',
+    watch: '.'
+  }],
+
+  deploy : {
+    production : {
+      user : 'SSH_USERNAME',
+      host : 'SSH_HOSTMACHINE',
+      ref  : 'origin/master',
+      repo : 'GIT_REPOSITORY',
+      path : 'DESTINATION_PATH',
+      'pre-deploy-local': '',
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production',
+      'pre-setup': ''
+    }
   }
-  
+};
