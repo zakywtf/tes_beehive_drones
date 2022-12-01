@@ -5,11 +5,11 @@ import bodyParser from 'body-parser'
 import validateToken from './lib/validateToken.cjs';
 import moment from 'moment';
 
-import users from './controller/usersCtrl'
-import login from './controller/login'
-import positions from './controller/positionsCtrl'
-import employees from './controller/employeesCtrl'
-import sallarys from './controller/sallarysCtrl'
+import users from './controller/usersCtrl.cjs'
+import login from './controller/login.cjs'
+import positions from './controller/positionsCtrl.cjs'
+import employees from './controller/employeesCtrl.cjs'
+import sallarys from './controller/sallarysCtrl.cjs'
 
 // const xpress = require("express")
 // const dotenv = require("dotenv")
