@@ -34,7 +34,7 @@ const createSession = async(token) => {
         // console.log({token, userId});
         console.log(SESSION, 'on addsession');
 
-        return { token: token }
+        return { ...udata, token: token }
     }else{
         // return {error:401, message:`Anda sedanng login di device lain!`}
         throw new Error('Anda sedang login di device lain!')

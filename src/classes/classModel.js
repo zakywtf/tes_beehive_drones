@@ -73,9 +73,9 @@ class Models {
     }
 
     async paging(limit, offset, filter, sort){
-        const data = await this.model.find(this.processFilter(filter), this.getProjection(),{skip:parseInt(offset), limit:parseInt(limit), sort:sort});
+        const results = await this.model.find(this.processFilter(filter), this.getProjection(),{skip:parseInt(offset), limit:parseInt(limit), sort:sort});
         const total = await this.model.count(filter);
-        return {data, total}
+        return {results, total}
     }
 }
 

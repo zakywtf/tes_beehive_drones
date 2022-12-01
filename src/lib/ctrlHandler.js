@@ -1,9 +1,9 @@
 const handleRequest = async (req, res, callback) =>{
     // let m = new model()
     let jres = {
-        error:200,
+        status: 200,
+        message:'Data retrieved',
         data:[],
-        message:'',
         stack:{},
         errorName:''
     }
