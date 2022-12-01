@@ -1,6 +1,6 @@
 import xpress from 'express'
 import dotenv from 'dotenv'
-import { connectDb } from './config/db';
+// import { connectDb } from './config/db';
 import bodyParser from 'body-parser'
 import validateToken from './lib/validateToken';
 import moment from 'moment';
