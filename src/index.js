@@ -1,15 +1,15 @@
 import xpress from 'express'
 import dotenv from 'dotenv'
-// import { connectDb } from './config/db';
+import { connectDb } from './config/db.cjs';
 import bodyParser from 'body-parser'
-// import validateToken from './lib/validateToken';
+import validateToken from './lib/validateToken.cjs';
 import moment from 'moment';
 
-// import users from './controller/usersCtrl'
-// import login from './controller/login'
-// import positions from './controller/positionsCtrl'
-// import employees from './controller/employeesCtrl'
-// import sallarys from './controller/sallarysCtrl'
+import users from './controller/usersCtrl'
+import login from './controller/login'
+import positions from './controller/positionsCtrl'
+import employees from './controller/employeesCtrl'
+import sallarys from './controller/sallarysCtrl'
 
 // const xpress = require("express")
 // const dotenv = require("dotenv")
@@ -18,11 +18,11 @@ import moment from 'moment';
 // const validateToken = require("./lib/validateToken")
 // const moment = require("moment")
 
-const users = require("./controller/usersCtrl")
-const login = require("./controller/login")
-const positions = require("./controller/positionsCtrl")
-const employees = require("./controller/employeesCtrl")
-const sallarys = require("./controller/sallarysCtrl")
+// const users = require("./controller/usersCtrl")
+// const login = require("./controller/login")
+// const positions = require("./controller/positionsCtrl")
+// const employees = require("./controller/employeesCtrl")
+// const sallarys = require("./controller/sallarysCtrl")
 
 
 let app = xpress()
@@ -36,29 +36,6 @@ app.use(function(req,res,next){
   req.io = io;
   next();
 });
-
-let MONGODB_URL = process.env.MONGO_URL;
-
-mongoose.Promise = global.Promise;
-mongoose
-    .connect(MONGODB_URL, {
-        useFindAndModify: false,
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useUnifiedTopology: true
-    })
-    .then(() => {
-        if (process.env.NODE_ENV == 'development') {
-            console.log("%s Connected to", chalk.green('✓'), MONGODB_URL);
-            console.log('Press CTRL + C to stop the process\n');
-        }
-    })
-    .catch((err) => {
-        console.error("App starting error:", err.message);
-        process.exit(1);
-    });
-
-mongoose.set('debug', process.env.NODE_ENV == 'development' ? true : false);
 
 app.get('/', (req, res)=>{
   var message = 'API Works!!'
@@ -86,8 +63,10 @@ io.on('connection', function (socket) {
   socket.emit('tes')
 });
 
-var server = app.listen(process.env.PORT || 5400, function () { 
-  var host = server.address().address  
-  var port = server.address().port  
-  console.log("Example app listening at http://%s:%s", host, port)  
-})  
+connectDb().then(async () => {
+  var server = app.listen(process.env.PORT || 5400, function () { 
+    var host = server.address().address  
+    var port = server.address().port  
+    console.log("Example app listening at http://%s:%s", host, port)  
+  })  
+});

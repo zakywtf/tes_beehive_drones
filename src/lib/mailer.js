@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer'
-import {smtp} from '../config/constant'
+import {smtp} from '../config/constant.cjs'
 
 const Mailer = nodemailer.createTransport(smtp)
 const sendMail = async(mail)=>{
