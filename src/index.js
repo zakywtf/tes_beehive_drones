@@ -37,6 +37,29 @@ app.use(function(req,res,next){
   next();
 });
 
+let MONGODB_URL = process.env.MONGO_URL;
+
+mongoose.Promise = global.Promise;
+mongoose
+    .connect(MONGODB_URL, {
+        useFindAndModify: false,
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    })
+    .then(() => {
+        if (process.env.NODE_ENV == 'development') {
+            console.log("%s Connected to", chalk.green('✓'), MONGODB_URL);
+            console.log('Press CTRL + C to stop the process\n');
+        }
+    })
+    .catch((err) => {
+        console.error("App starting error:", err.message);
+        process.exit(1);
+    });
+
+mongoose.set('debug', process.env.NODE_ENV == 'development' ? true : false);
+
 app.get('/', (req, res)=>{
   var message = 'API Works!!'
   res.send(message);
@@ -63,10 +86,8 @@ io.on('connection', function (socket) {
   socket.emit('tes')
 });
 
-connectDb().then(async () => {
-  var server = app.listen(process.env.PORT || 5400, function () { 
-    var host = server.address().address  
-    var port = server.address().port  
-    console.log("Example app listening at http://%s:%s", host, port)  
-  })  
-});
+var server = app.listen(process.env.PORT || 5400, function () { 
+  var host = server.address().address  
+  var port = server.address().port  
+  console.log("Example app listening at http://%s:%s", host, port)  
+})  
