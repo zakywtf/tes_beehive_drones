@@ -1,15 +1,28 @@
-const xpress = require("express")
-const dotenv = require("dotenv")
-const { connectDb } = require("./config/db")
-const bodyParser = require("body-parser")
-const validateToken = require("./lib/validateToken")
-const moment = require("moment")
+import xpress from 'express'
+import dotenv from 'dotenv'
+import { connectDb } from './config/db';
+import bodyParser from 'body-parser'
+import validateToken from './lib/validateToken';
+import moment from 'moment';
 
-const users = require("./controller/usersCtrl")
-const login = require("./controller/login")
-const positions = require("./controller/positionsCtrl")
-const employees = require("./controller/employeesCtrl")
-const sallarys = require("./controller/sallarysCtrl")
+import users from './controller/usersCtrl'
+import login from './controller/login'
+import positions from './controller/positionsCtrl'
+import employees from './controller/employeesCtrl'
+import sallarys from './controller/sallarysCtrl'
+
+// const xpress = require("express")
+// const dotenv = require("dotenv")
+// const { connectDb } = require("./config/db")
+// const bodyParser = require("body-parser")
+// const validateToken = require("./lib/validateToken")
+// const moment = require("moment")
+
+// const users = require("./controller/usersCtrl")
+// const login = require("./controller/login")
+// const positions = require("./controller/positionsCtrl")
+// const employees = require("./controller/employeesCtrl")
+// const sallarys = require("./controller/sallarysCtrl")
 
 
 let app = xpress()
